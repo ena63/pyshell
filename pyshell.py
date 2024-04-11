@@ -7,6 +7,7 @@
 # version 2: fev 2017. ajout hardware spécifique client (affectation des GPIO differente)
 # version 3: fev 2018. adaptation pour banc de test MIND
 # version 4: jul 2018. test avec rack BMAC
+# version 5: apr 2024. upload sur GitHub
 
 import serial
 import serial.tools.list_ports
