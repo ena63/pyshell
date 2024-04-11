@@ -10,7 +10,6 @@
 
 import serial
 import serial.tools.list_ports
-import time
 import string
 
 #Configuration port serie et baudrate à adapter à l'application
