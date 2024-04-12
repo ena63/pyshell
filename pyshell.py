@@ -31,12 +31,14 @@ def debug_print( message ):
 def send_command( lacommande ):
     ser.flushInput()    #réinitialise les buffers
     ser.flushOutput()
-    lacommande = lacommande.upper() #majuscules
-    checksum = 0
-    for c in lacommande :            #calcul checksum
-        checksum = checksum + ord(c)
+    lacommande = lacommande.upper() # conversion en majuscules
+    checksum = sum(ord(c) for c in lacommande) % 256 # calcul de la checksum
     debug_print('checksum=' + str(checksum))
-        
+
+    # Protocole DMAC/BMAC:
+    # [STX][SIZ1][SIZ2][SIZ3][ADR1][ADR2][CMD1]...[CMDn][CHK1][CHK2][ETX]
+    # https://www.midi-ingenierie.com/documentation/ressources/notes_application/Syntaxe-et-communication-calculateur.pdf
+    
     lacommande_str = f"{STX}{len(lacommande):03}{lacommande}{checksum % 256:02X}{ETX}"
     lacommande_bytes = bytes(lacommande_str,'ascii')
     debug_print('sending '+ str(len(lacommande_bytes)) + ' bytes :' + str(lacommande_bytes))
