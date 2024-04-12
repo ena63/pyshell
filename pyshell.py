@@ -94,13 +94,21 @@ class BMAC:
         else:
             return(reponse[6:-4].decode('ascii')) # décodage de la réponse (on ignore les caractères de 'protocole')
 
-        
+"""
+exemple d'utilisation
+"""
 if __name__ == '__main__':
+    import sys
+    
     print("╔════════════════════════════╗")
     print("║           PYSHELL          ║")
     print("║    ©Midi Ingenierie 2024   ║")
     print("╚════════════════════════════╝")
-    
+
+    if sys.version_info < (3, 6):
+    print("Erreur : Cette version de Python n'est pas prise en charge. Veuillez utiliser Python 3.6 ou une version ultérieure.")
+    sys.exit(1)
+
     logging.basicConfig(level=logging.ERROR) # logging.ERROR ou logging.INFO
     
     my_bmac = BMAC("COM2",baudrate=115200,address=0)
