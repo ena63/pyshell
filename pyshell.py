@@ -106,8 +106,8 @@ if __name__ == '__main__':
     print("╚════════════════════════════╝")
 
     if sys.version_info < (3, 6):
-    print("Erreur : Cette version de Python n'est pas prise en charge. Veuillez utiliser Python 3.6 ou une version ultérieure.")
-    sys.exit(1)
+        print("Erreur : Cette version de Python n'est pas prise en charge. Veuillez utiliser Python 3.6 ou une version ultérieure.")
+        sys.exit(1)
 
     logging.basicConfig(level=logging.ERROR) # logging.ERROR ou logging.INFO
     
