@@ -4,6 +4,8 @@
 
 python script for serial communication with Midi Ingenierie DMAC/BMAC modules
 
+C file (linux) for serial communication with Midi Ingenierie DMAC/BMAC modules
+
 <img src="Bmac-b-carre-500x503.jpg" alt="photo bmac" width="50%">
 
 
