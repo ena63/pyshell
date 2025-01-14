@@ -198,6 +198,7 @@ int read_response(int fd, char *buffer) {
             strncpy(buffer, raw_response + 6, content_len);
             buffer[content_len] = '\0'; // Null-terminate the string
         } else { // Command without response
+			content_len = 2;
             sprintf(buffer, "OK");
         }
         return content_len;
